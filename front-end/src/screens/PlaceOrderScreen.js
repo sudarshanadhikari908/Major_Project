@@ -14,6 +14,7 @@ function PlaceOrderScreen({ history }) {
     const { order, error, success } = orderCreate
 
     const dispatch = useDispatch()
+
     const cart = useSelector(state => state.cart)
 
     cart.itemsPrice = cart.cartItems.reduce((acc, item) => acc + item.price * item.qty, 0).toFixed(2)
@@ -22,6 +23,7 @@ function PlaceOrderScreen({ history }) {
 
     cart.totalPrice = (Number(cart.itemsPrice) + Number(cart.shippingPrice) + Number(cart.taxPrice)).toFixed(2)
 
+
     if (!cart.paymentMethod) {
         history.push('/payment')
     }
@@ -29,8 +31,8 @@ function PlaceOrderScreen({ history }) {
     useEffect(() => {
         if (success) {
             history.push(`/order/${order._id}`)
-        }
 
+        }
     }, [success, history])
 
     const placeOrder = () => {
@@ -39,7 +41,7 @@ function PlaceOrderScreen({ history }) {
             shippingAddress: cart.shippingAddress,
             paymentMethod: cart.paymentMethod,
             itemsPrice: cart.itemsPrice,
-            shippingPrice: cart.shippingAddress,
+            shippingPrice: cart.shippingPrice,
             taxPrice: cart.taxPrice,
             totalPrice: cart.totalPrice,
         }))
