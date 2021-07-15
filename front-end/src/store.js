@@ -2,7 +2,14 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 // Redux thunk just allows to make asynchronous request for action creater// It is sort of like a middleware
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import { producListReducer, productDetailsReducer } from './reducers/productReducer'
+import {
+    producListReducer,
+    productDetailsReducer,
+    productDeleteReducer,
+    productCreateReducer,
+    productUpdateReducer,
+    productReviewCreateReducer,
+} from './reducers/productReducer'
 import { cartReducer } from './reducers/cartReducer'
 import {
     userLoginReducer,
@@ -13,12 +20,24 @@ import {
     userDeleteReducer,
     userUpdateReducer
 } from './reducers/userReducer'
-import { orderCreateReducer, orderDetailsReducer, orderPayReducer, orderListMyReducer } from './reducers/orderReducers'
+import {
+    orderCreateReducer,
+    orderDetailsReducer,
+    orderPayReducer,
+    orderListMyReducer,
+    orderListReducer,
+    orderDeliverReducer,
+} from './reducers/orderReducers'
 
 
 const reducer = combineReducers({
     productList: producListReducer,
     productDetails: productDetailsReducer,
+    productCreate: productCreateReducer,
+    productDelete: productDeleteReducer,
+    productUpdate: productUpdateReducer,
+    productReviewCreate: productReviewCreateReducer,
+
     cart: cartReducer,
     userLogin: userLoginReducer,
     userRegister: userRegisterReducer,
@@ -33,6 +52,8 @@ const reducer = combineReducers({
     orderDetails: orderDetailsReducer,
     orderPay: orderPayReducer,
     orderListMy: orderListMyReducer,
+    orderList: orderListReducer,
+    orderDeliver: orderDeliverReducer,
 
 })
 const cartItemsFromStorage = localStorage.getItem('cartItems') ?
