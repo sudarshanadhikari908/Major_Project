@@ -93,6 +93,7 @@ export const orderDetailsReducer = (state = { loading: true, orderItems: [], shi
 }
 
 
+
 export const orderPayReducer = (state = {}, action) => {
     switch (action.type) {
         case ORDER_PAY_REQUEST:
@@ -119,7 +120,6 @@ export const orderPayReducer = (state = {}, action) => {
             return state
     }
 }
-
 
 export const orderDeliverReducer = (state = {}, action) => {
     switch (action.type) {
