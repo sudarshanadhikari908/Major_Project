@@ -174,6 +174,13 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
     BASE_DIR / 'front-end/build/static'
 ]
+
+GRAPH_MODELS = {
+  'all_applications': True,
+  'group_models': True,
+  'app_labels': ["base","auth"],
+
+}
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
